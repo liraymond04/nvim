@@ -35,13 +35,9 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<S-k>", ":bnext<CR>", opts)
 keymap("n", "<S-j>", ":bprevious<CR>", opts)
 
--- Move text up and down
--- keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
--- keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
-
--- Insert --
--- Press jk fast to exit insert mode 
--- keymap("i", "jk", "<ESC>", opts)
+-- Reorder buffers
+keymap("n", "<m-k>", ":BufferLineMoveNext<CR>", opts)
+keymap("n", "<m-j>", ":BufferLineMovePrev<CR>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -57,8 +53,11 @@ keymap("v", "p", '"_dP', opts)
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
--- keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
--- keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+
+-- Comment
+-- Control forward slash comes out as ^_
+keymap("n", "<C-_>", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
+keymap("x", "<C-_>", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', opts)
 
 -- Terminal --
 -- Better terminal navigation

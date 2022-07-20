@@ -34,7 +34,7 @@ bufferline.setup {
     max_name_length = 30,
     max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
     tab_size = 21,
-    diagnostics = false, -- | "nvim_lsp" | "coc",
+    diagnostics = "nvim_lsp", -- | "nvim_lsp" | "coc",
     diagnostics_update_in_insert = false,
     -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
     --   return "("..count..")"
@@ -81,11 +81,11 @@ bufferline.setup {
       guibg = { attribute = "bg", highlight = "TabLine" },
     },
 
-    -- buffer_selected = {
-    --   guifg = {attribute='fg',highlight='#ff0000'},
-    --   guibg = {attribute='bg',highlight='#0000ff'},
-    --   gui = 'none'
-    --   },
+    buffer_selected = {
+      guifg = { attribute = "fg", highlight = "Normal" },
+      guibg = { attribute = "bg", highlight = "Normal" },
+      gui = "none",
+    },
     buffer_visible = {
       guifg = { attribute = "fg", highlight = "TabLine" },
       guibg = { attribute = "bg", highlight = "TabLine" },
@@ -161,7 +161,33 @@ bufferline.setup {
     --   },
     indicator_selected = {
       guifg = { attribute = "fg", highlight = "LspDiagnosticsDefaultHint" },
-      guibg = { attribute = "bg", highlight = "Normal" },
+      guibg = { attribute = "bg", highlight = "Normal" }
+    },
+
+    error = {
+      guifg = "#9D4B52",
+      guibg = { attribute = "bg", highlight = "TabLine" },
+      gui = "none",
+    },
+    error_selected = {
+      -- guifg = '<color-value-here>',
+      -- guibg = '<color-value-here>',
+      gui = "none",
+      -- guisp = '<color-value-here>',
+    },
+    error_diagnostic = {
+      guifg = '#9D4B52',
+      guibg = { attribute = "bg", highlight = "TabLine" },
+    },
+    -- error_diagnostic_visible = {
+    --   guifg = '<color-value-here>',
+    --   guibg = '<color-value-here>',
+    -- },
+    error_diagnostic_selected = {
+      guifg = '#E06C75',
+      -- guibg = '<color-value-here>',
+      gui = "none",
+      -- guisp = '<color-value-here>'
     },
   },
 }
