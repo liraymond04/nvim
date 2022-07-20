@@ -169,6 +169,10 @@ bufferline.setup {
       guibg = { attribute = "bg", highlight = "TabLine" },
       gui = "none",
     },
+    -- error_visible = {
+    --   guifg = '<color-value-here>',
+    --   guibg = '<color-value-here>'
+    -- },
     error_selected = {
       -- guifg = '<color-value-here>',
       -- guibg = '<color-value-here>',
@@ -185,6 +189,68 @@ bufferline.setup {
     -- },
     error_diagnostic_selected = {
       guifg = '#E06C75',
+      -- guibg = '<color-value-here>',
+      gui = "none",
+      -- guisp = '<color-value-here>'
+    },
+
+    warning = {
+      guifg = '#A18756',
+      guibg = { attribute = "bg", highlight = "TabLine" },
+      gui = "none",
+      -- guisp = '<color-value-here>',
+    },
+    -- warning_visible = {
+    --   guifg = '<color-value-here>',
+    --   guibg = '<color-value-here>'
+    -- },
+    warning_selected = {
+      -- guifg = '<color-value-here>',
+      -- guibg = '<color-value-here>',
+      gui = "none",
+      -- guisp = '<color-value-here>'
+    },
+    warning_diagnostic = {
+      guifg = '#A18756',
+      guibg = { attribute = "bg", highlight = "TabLine" },
+    },
+    -- warning_diagnostic_visible = {
+    --   guifg = '<color-value-here>',
+    --   guibg = '<color-value-here>'
+    -- },
+    warning_diagnostic_selected = {
+      guifg = '#E5C07B',
+      -- guibg = '<color-value-here>',
+      gui = "none",
+      -- guisp = '<color-value-here>'
+    },
+
+    info = {
+      guifg = '#447BA8',
+      guibg = { attribute = "bg", highlight = "TabLine" },
+      gui = "none",
+      -- guisp = '<color-value-here>',
+    },
+    -- info_visible = {
+    --   guifg = '<color-value-here>',
+    --   guibg = '<color-value-here>'
+    -- },
+    info_selected = {
+      -- guifg = '<color-value-here>',
+      -- guibg = '<color-value-here>',
+      gui = "none",
+      -- guisp = '<color-value-here>'
+    },
+    info_diagnostic = {
+      guifg = '#447BA8',
+      guibg = { attribute = "bg", highlight = "TabLine" },
+    },
+    -- info_diagnostic_visible = {
+    --   guifg = '<color-value-here>',
+    --   guibg = '<color-value-here>'
+    -- },
+    info_diagnostic_selected = {
+      guifg = '#61AFEF',
       -- guibg = '<color-value-here>',
       gui = "none",
       -- guisp = '<color-value-here>'
