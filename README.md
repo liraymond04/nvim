@@ -1,11 +1,13 @@
 # nvim
 Based on chris@machine's Neovim from Scratch
 
+Used as a submodule in my main [dotfiles](https://github.com/liraymond04/.dotfiles) repository
+
 ## Try out this config
 
 Make sure to remove or move your current `nvim` directory
 
-**IMPORTANT** Requires [Neovim v0.8.0]](https://github.com/neovim/neovim/releases).  [Upgrade](#upgrade-to-latest-release) if you're on an earlier version. 
+**IMPORTANT** Requires [Neovim v0.8.0](https://github.com/neovim/neovim/releases).  [Upgrade](#upgrade-to-latest-release) if you're on an earlier version. 
 ```
 git clone https://github.com/LunarVim/Neovim-from-scratch.git ~/.config/nvim
 ```
