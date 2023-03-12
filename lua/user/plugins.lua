@@ -103,6 +103,9 @@ return packer.startup(function(use)
 
 	-- Typescript TODO: set this up, also add keybinds to ftplugin
 	use "jose-elias-alvarez/typescript.nvim"
+
+	-- GML
+	use "JafarDakhan/vim-gml"
 	
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim", commit = "d96eaa914aab6cfc4adccb34af421bdd496468b0" })
