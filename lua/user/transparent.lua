@@ -9,6 +9,7 @@ transparent.setup({
   
       -- example of akinsho/nvim-bufferline.lua
       "all",
+      "WhichKeyFloat"
     },
     exclude_groups = {}, -- table: groups you don't want to clear
   })
