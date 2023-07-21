@@ -21,7 +21,7 @@ nvim/               // root
 ### core
 
  - init.lua - loads in user options and handles basic flow
- - autocommands.lua - creates autocommands, per file vim options like spaces per tab are handled here
+ - autocommands.lua - creates autocommands and augroups
  - keymaps.lua - user defined key mappings
  - options.lua - user defined vim options
  - plugins.lua - plugin install and setup
@@ -39,6 +39,7 @@ nvim/               // root
  - Commenting out the `requires "core"` in the root `init.lua` disables the configuration (same as using unconfigured Neovim)
  - Commenting out `requires "core.plugins"` in `core/init.lua` disables user installed plugins
  - Individual plugins can be disabled by commenting out their requires lines in `plugins/setup.lua`
+    - Note: `tpope/vim-sleuth` is an exception, it's not a Lua plugin and is loaded by the package manager
  - Plugins can be installed by adding a plugin's repo `[author]/[repo-name]` to the lua table in `plugins/init.lua`
 
 ## Setup
