@@ -12,6 +12,9 @@ local plugins = {
     end,
   },
   {
+    "tpope/vim-sleuth",
+  },
+  {
     "nvim-lua/plenary.nvim",
   },
   {
