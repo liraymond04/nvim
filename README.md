@@ -1,76 +1,66 @@
 # nvim
-Based on chris@machine's Neovim from Scratch
+
+My personal [neovim](https://github.com/neovim/neovim) configuration
 
 Used as a submodule in my main [dotfiles](https://github.com/liraymond04/.dotfiles) repository
 
-## Try out this config
+## Structure
 
-Make sure to remove or move your current `nvim` directory
-
-**IMPORTANT** Requires [Neovim v0.8.0](https://github.com/neovim/neovim/releases).  [Upgrade](#upgrade-to-latest-release) if you're on an earlier version. 
-```
-git clone https://github.com/LunarVim/Neovim-from-scratch.git ~/.config/nvim
-```
-
-Run `nvim` and wait for the plugins to be installed 
-
-**NOTE** (You will notice treesitter pulling in a bunch of parsers the next time you open Neovim) 
-
-## Get healthy
-
-Open `nvim` and enter the following:
+Document points of interest in config file structure
 
 ```
-:checkhealth
+nvim/               // root
+├─ lua/
+│  ├─ core/         // main vim configs
+│  ├─ plugins/
+│  │  ├─ configs/   // plugin setup
+│  │  ├─ utils/
+├─ init.lua         // entry point
 ```
 
-You'll probably notice you don't have support for copy/paste also that python and node haven't been setup
+### core
 
-So let's fix that
+ - init.lua - loads in user options and handles basic flow
+ - autocommands.lua - creates autocommands, per file vim options like spaces per tab are handled here
+ - keymaps.lua - user defined key mappings
+ - options.lua - user defined vim options
+ - plugins.lua - plugin install and setup
 
-First we'll fix copy/paste
+### plugins
+ - init.lua - returns
+ table of plugins to install
+ - setup.lua - include file for plugin configuration and setup
+ - configs/ - contains
+ configuration and setup for plugins
+ - utils/ - contains utility functions not part of plugin setup
+ 
+## Tips
 
-- On mac `pbcopy` should be builtin
+ - Commenting out the `requires "core"` in the root `init.lua` disables the configuration (same as using unconfigured Neovim)
+ - Commenting out `requires "core.plugins"` in `core/init.lua` disables user installed plugins
+ - Individual plugins can be disabled by commenting out their requires lines in `plugins/setup.lua`
+ - Plugins can be installed by adding a plugin's repo `[author]/[repo-name]` to the lua table in `plugins/init.lua`
 
-- On Ubuntu
+## Setup
 
-  ```
-  sudo apt install xsel
-  ```
+### Arch Linux
 
-- On Arch Linux
+Install `nvim`
 
-  ```
-  sudo pacman -S xsel
-  ```
-
-Next we need to install python support (node is optional)
-
-- Neovim python support
-
-  ```
-  pip install pynvim
-  ```
-
-- Neovim node support
-
-  ```
-  npm i -g neovim
-  ```
----
-
-**NOTE** make sure you have [node](https://nodejs.org/en/) installed, I recommend a node manager like [fnm](https://github.com/Schniz/fnm).
-
-### Upgrade to latest release
-
-Assuming you [built from source](https://github.com/neovim/neovim/wiki/Building-Neovim#quick-start), `cd` into the folder where you cloned `neovim` and run the following commands. 
-```
-git pull
-make distclean && make CMAKE_BUILD_TYPE=Release
-sudo make install
-nvim -v
+```bash
+sudo pacman -S nvim
 ```
 
-> The computing scientist's main challenge is not to get confused by the complexities of his own making. 
+If copy and paste doesn't work, install `xsel`
 
-\- Edsger W. Dijkstra
+```bash
+sudo pacman -S xsel
+```
+
+Open Neovim with the `nvim` command
+
+```bash
+nvim
+```
+
+Plugins, language servers, and treesitter parsers should be installed when entering `nvim` for the first time (may need a restart after installation is complete)
