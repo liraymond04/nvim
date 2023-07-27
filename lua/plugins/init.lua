@@ -130,6 +130,7 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
       'JoosepAlviste/nvim-ts-context-commentstring',
+      'windwp/nvim-ts-autotag',
     },
   },
   -- git
