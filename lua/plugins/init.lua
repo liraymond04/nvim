@@ -128,6 +128,9 @@ local plugins = {
   -- treesitter
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      'JoosepAlviste/nvim-ts-context-commentstring',
+    },
   },
   -- git
   {

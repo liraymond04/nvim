@@ -38,6 +38,7 @@ mason_lspconfig.setup({
     "jsonls",
     "lua_ls",
     "tsserver",
+    "svelte",
     "pyright",
     "yamlls",
     "bashls",
