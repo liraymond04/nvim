@@ -12,6 +12,10 @@ local plugins = {
     end,
   },
   {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
+  {
     "tpope/vim-sleuth",
   },
   {
