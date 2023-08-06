@@ -63,6 +63,8 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 -- Control forward slash comes out as ^_
 keymap("n", "<C-_>", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
 keymap("x", "<C-_>", "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", opts)
+keymap("n", "<C-/>", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
+keymap("x", "<C-/>", "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", opts)
 -- keymap("n", "<C-_>", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
 -- keymap("x", "<C-_>", '<ESC><CMD>lua require("Comment.api").toggle.blockwise.current(vim.fn.visualmode())<CR>', opts)
 
