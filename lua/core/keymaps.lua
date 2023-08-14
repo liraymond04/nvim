@@ -25,6 +25,8 @@ vim.g.maplocalleader = " "
 -- keymap("n", "<C-k>", "<C-w>k", opts)
 -- keymap("n", "<C-l>", "<C-w>l", opts)
 
+keymap("i", "<C-c>", "<Esc>", opts)
+
 keymap("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>", opts)
 keymap("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>", opts)
 keymap("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>", opts)
