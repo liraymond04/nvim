@@ -4,6 +4,9 @@ if not status_ok then
 end
 
 configs.setup({
+  modules = {},
+  sync_install = false, -- install parsers synchronously
+  auto_install = true, -- needs tree-sitter-cli (cargo install or npm install)
   ensure_installed = "all", -- one of "all" or a list of languages
   ignore_install = { "" }, -- List of parsers to ignore installing
   highlight = {
