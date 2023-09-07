@@ -47,6 +47,8 @@ mason_lspconfig.setup({
     "rust_analyzer",
     "tailwindcss",
     "zk",
+    "texlab",
+    "r_language_server",
   },
 })
 
