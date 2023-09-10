@@ -162,6 +162,14 @@ local mappings = {
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
+
+  d = {
+    name = "DAP",
+    t = { "<cmd>lua require('dapui').toggle()<cr>", "Toggle UI" },
+    f = { "<cmd>DapToggleBreakpoint<cr>", "Toggle breakpoint"},
+    g = { "<cmd>DapContinue<cr>", "Continue"},
+    r = { "<cmd>lua require('dapui').open({reset = true})<cr>", "Reset UI" },
+  },
 }
 
 which_key.setup(setup)

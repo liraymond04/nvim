@@ -3,6 +3,11 @@ if not mason_status_ok then
   return
 end
 
+local mason_dap_status_ok, mason_dap = pcall(require, "mason-nvim-dap")
+if not mason_dap_status_ok then
+  return
+end
+
 local mason_lspconfig_status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not mason_lspconfig_status_ok then
   return
@@ -26,6 +31,14 @@ mason.setup({
       package_uninstalled = "✗",
     },
   },
+})
+
+mason_dap.setup({
+  ensure_installed = {
+    "codelldb",
+  },
+  automatic_installation = false,
+  handlers = {},
 })
 
 mason_lspconfig.setup({
