@@ -101,6 +101,9 @@ local plugins = {
     "williamboman/mason-lspconfig.nvim",
   },
   {
+    "jay-babu/mason-nvim-dap.nvim",
+  },
+  {
     "jose-elias-alvarez/null-ls.nvim"
   },
   {
@@ -140,6 +143,16 @@ local plugins = {
   -- git
   {
     "lewis6991/gitsigns.nvim",
+  },
+  -- dap,
+  {
+    "mfussenegger/nvim-dap",
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+  },
+  {
+    "nvim-telescope/telescope-dap.nvim",
   },
 }
 
