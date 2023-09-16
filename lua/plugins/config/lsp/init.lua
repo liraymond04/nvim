@@ -23,6 +23,11 @@ local lsp_path = "plugins.config.lsp" .. "."
 require(lsp_path .. "lsp-signature")
 local lsp_handlers = require(lsp_path .. "handlers")
 
+lspconfig.gdscript.setup({
+  root_dir = require('lspconfig.util').root_pattern('project.godot', '.git'),
+  filetypes = { 'gd', 'gdscript', 'gdscript3' },
+})
+
 mason.setup({
   ui = {
     icons = {
@@ -58,7 +63,7 @@ mason_lspconfig.setup({
     "clangd",
     "cmake",
     "rust_analyzer",
-    "tailwindcss",
+    -- "tailwindcss",
     "zk",
     "texlab",
     "r_language_server",
@@ -66,13 +71,13 @@ mason_lspconfig.setup({
 })
 
 mason_lspconfig.setup_handlers {
-  function (server_name)
+  function(server_name)
     lspconfig[server_name].setup {
       on_attach = lsp_handlers.on_attach,
       capabilities = lsp_handlers.capabilities,
     }
   end,
-  ["lua_ls"] = function ()
+  ["lua_ls"] = function()
     lspconfig.lua_ls.setup {
       settings = {
         Lua = {
