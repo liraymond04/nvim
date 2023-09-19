@@ -60,6 +60,9 @@ local plugins = {
   {
     "max397574/better-escape.nvim",
   },
+  {
+    "ThePrimeagen/harpoon",
+  },
   -- cmp plugins
   {
     "hrsh7th/nvim-cmp",
