@@ -170,6 +170,14 @@ local mappings = {
     g = { "<cmd>DapContinue<cr>", "Continue"},
     r = { "<cmd>lua require('dapui').open({reset = true})<cr>", "Reset UI" },
   },
+
+  j = {
+    name = "harpoon",
+    a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Add mark" },
+    t = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Toggle quick menu" },
+    j = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "Navigate previous" },
+    k = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", "Navigate next" },
+  },
 }
 
 which_key.setup(setup)

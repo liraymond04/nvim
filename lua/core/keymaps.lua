@@ -70,6 +70,13 @@ keymap("x", "<C-/>", "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.f
 -- keymap("n", "<C-_>", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
 -- keymap("x", "<C-_>", '<ESC><CMD>lua require("Comment.api").toggle.blockwise.current(vim.fn.visualmode())<CR>', opts)
 
+-- Harpoon
+vim.keymap.set("n", "m",
+  function()
+    require('harpoon.ui').nav_file(vim.v.count)
+  end, opts
+)
+-- keymap("n", "m", toggle_move, opts)
 -- Terminal --
 -- Better terminal navigation
 -- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
