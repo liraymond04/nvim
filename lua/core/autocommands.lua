@@ -28,6 +28,11 @@ vim.cmd [[
     autocmd!
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
+
+  augroup _tab_size
+    autocmd!
+    autocmd FileType c,cpp,h,hpp setlocal shiftwidth=4 tabstop=4
+  augroup end
 ]]
 
 -- Autoformat
