@@ -77,6 +77,12 @@ vim.keymap.set("n", "m",
   end, opts
 )
 -- keymap("n", "m", toggle_move, opts)
+
+-- LSP signature help
+keymap("n", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+keymap("i", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+keymap("x", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+
 -- Terminal --
 -- Better terminal navigation
 -- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
