@@ -110,8 +110,14 @@ local plugins = {
     "jose-elias-alvarez/null-ls.nvim"
   },
   {
-    "ray-x/lsp_signature.nvim",
+    "hrsh7th/cmp-nvim-lsp-signature-help",
   },
+  -- {
+  --   "ray-x/lsp_signature.nvim",
+  --   event = "VeryLazy",
+  --   opts = {},
+  --   config = function(_, opts) require 'lsp_signature'.setup(opts) end
+  -- },
   {
     "b0o/SchemaStore.nvim",
   },
