@@ -47,6 +47,7 @@ local plugins = {
   },
   {
     "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
   },
   {
     "goolord/alpha-nvim",
