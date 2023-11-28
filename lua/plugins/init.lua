@@ -127,6 +127,9 @@ local plugins = {
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
   {
+    "justinmk/vim-sneak",
+  },
+  {
     "RRethy/vim-illuminate",
   },
   {
