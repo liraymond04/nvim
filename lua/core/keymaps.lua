@@ -83,6 +83,9 @@ keymap("n", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 keymap("i", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 keymap("x", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 
+-- vim-sneak
+keymap('n', '<C-c>', '<cmd>lua vim.fn["sneak#util#removehl"]()<CR>', opts)
+
 -- Terminal --
 -- Better terminal navigation
 -- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
