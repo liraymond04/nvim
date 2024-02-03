@@ -33,6 +33,12 @@ vim.cmd [[
     autocmd!
     autocmd FileType c,cpp,h,hpp setlocal shiftwidth=4 tabstop=4
   augroup end
+
+  augroup AssemblyIndent
+    autocmd!
+
+    autocmd FileType asm setlocal autoindent noexpandtab shiftwidth=8 tabstop=8
+  augroup END
 ]]
 
 -- Autoformat
