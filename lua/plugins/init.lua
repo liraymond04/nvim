@@ -113,6 +113,9 @@ local plugins = {
   {
     "hrsh7th/cmp-nvim-lsp-signature-help",
   },
+  {
+    "mfussenegger/nvim-jdtls",
+  },
   -- {
   --   "ray-x/lsp_signature.nvim",
   --   event = "VeryLazy",
