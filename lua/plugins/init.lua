@@ -148,6 +148,9 @@ local plugins = {
     "nvim-telescope/telescope.nvim",
     dependencies = { "ahmedkhalf/project.nvim" }
   },
+  {
+    "nvim-telescope/telescope-ui-select.nvim",
+  },
   -- treesitter
   {
     "nvim-treesitter/nvim-treesitter",
