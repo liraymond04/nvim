@@ -96,4 +96,11 @@ mason_lspconfig.setup_handlers {
 
 lsp_handlers.setup()
 
+local dap = require('dap')
+dap.configurations.c[1].args = function()
+  local argument_string = vim.fn.input('Program arguments: ')
+  return vim.fn.split(argument_string, " ", true)
+end
+
+
 require(lsp_path .. "null-ls")
