@@ -46,10 +46,10 @@ nvim/               // root
 
 ### Arch Linux
 
-Install `nvim`
+Install `nvim` and `make`
 
 ```bash
-sudo pacman -S nvim
+sudo pacman -S nvim make
 ```
 
 If copy and paste doesn't work, install `xsel`
