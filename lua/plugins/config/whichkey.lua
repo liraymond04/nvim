@@ -90,7 +90,7 @@ local mappings = {
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = true})<cr>",
     "Find files",
   },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
@@ -171,10 +171,10 @@ local mappings = {
     r = { "<cmd>lua require('dapui').open({reset = true})<cr>", "Reset UI" },
   },
 
-  j = {
+  r = {
     name = "harpoon",
     a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Add mark" },
-    t = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Toggle quick menu" },
+    r = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Toggle quick menu" },
     j = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "Navigate previous" },
     k = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", "Navigate next" },
   },
