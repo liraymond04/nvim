@@ -180,6 +180,9 @@ local plugins = {
   {
     "nvim-telescope/telescope-dap.nvim",
   },
+  {
+    "pteroctopus/faster.nvim",
+  },
 }
 
 return plugins
