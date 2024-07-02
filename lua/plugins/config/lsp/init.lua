@@ -104,3 +104,6 @@ end
 
 
 require(lsp_path .. "null-ls")
+
+-- set highlight LSP highlight groups
+vim.api.nvim_set_hl(0, "LspReferenceText", { blend = 100, underline = true })
