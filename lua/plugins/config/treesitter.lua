@@ -5,16 +5,16 @@ end
 
 configs.setup({
   modules = {},
-  sync_install = false, -- install parsers synchronously
-  auto_install = true, -- needs tree-sitter-cli (cargo install or npm install)
+  sync_install = false,     -- install parsers synchronously
+  auto_install = true,      -- needs tree-sitter-cli (cargo install or npm install)
   ensure_installed = "all", -- one of "all" or a list of languages
-  ignore_install = { "" }, -- List of parsers to ignore installing
+  ignore_install = { "" },  -- List of parsers to ignore installing
   highlight = {
-    enable = true, -- false will disable the whole extension
-    disable = { "css" }, -- list of language that will be disabled
+    enable = true,          -- false will disable the whole extension
+    -- disable = { "css" },    -- list of language that will be disabled
   },
   autopairs = {
     enable = true,
   },
-  indent = { enable = true, disable = { "python", "css" } },
+  indent = { enable = true, disable = {} },
 })
