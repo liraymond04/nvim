@@ -183,7 +183,7 @@ local plugins = {
   {
     "pteroctopus/faster.nvim",
   },
-  { -- requires webkit2gtk
+  { -- requires webkit2gtk and deno
     "toppair/peek.nvim",
     event = { "VeryLazy" },
     build = "deno task --quiet build:fast",
