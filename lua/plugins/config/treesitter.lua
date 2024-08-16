@@ -18,3 +18,6 @@ configs.setup({
   },
   indent = { enable = true, disable = {} },
 })
+
+local awa5_rs = require("awa5_rs")
+awa5_rs.setup({})
