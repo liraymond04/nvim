@@ -163,6 +163,11 @@ local plugins = {
       'windwp/nvim-ts-autotag',
     },
   },
+  {
+    -- dir = "/home/liray/Documents/Programming/nvim/awa5_rs.nvim",
+    -- name = "awa5_rs.nvim",
+    "liraymond04/awa5_rs.nvim"
+  },
   -- git
   {
     "lewis6991/gitsigns.nvim",
