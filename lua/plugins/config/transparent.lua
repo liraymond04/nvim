@@ -33,7 +33,8 @@ transparent.setup({
       "DiagnosticVirtualTextHint",
       "DiagnosticVirtualTextOk",
       "NormalFloat",
-      "FloatBorder"
+      "FloatBorder",
+      "TabLineFill",
     },
     exclude_groups = {}, -- table: groups you don't want to clear
   })
