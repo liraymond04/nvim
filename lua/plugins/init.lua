@@ -108,7 +108,7 @@ local plugins = {
     "jay-babu/mason-nvim-dap.nvim",
   },
   {
-    "jose-elias-alvarez/null-ls.nvim"
+    "nvimtools/none-ls.nvim"
   },
   {
     "hrsh7th/cmp-nvim-lsp-signature-help",
