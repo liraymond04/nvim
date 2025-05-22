@@ -84,7 +84,12 @@ telescope.setup {
     --   ...
     -- }
     find_files = {
-      find_command = { 'rg', '--files', '--hidden', '-g', '!.git' },
+      find_command = { 'rg', '--files', '--hidden', '-g', '!{**/.git/*,**/node_modules/*,**/package-lock.json,**/yarn.lock}' },
+    },
+    live_grep = {
+      additional_args = function(opts)
+        return { "--hidden" }
+      end
     },
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker

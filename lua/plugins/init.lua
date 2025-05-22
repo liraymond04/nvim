@@ -100,9 +100,17 @@ local plugins = {
   {
     "williamboman/mason.nvim",
     build = ":MasonUpdate",
+    opts = {},
+    lazy = false,
   },
   {
     "williamboman/mason-lspconfig.nvim",
+    event = "BufReadPost",
+    opts = {},
+    dependencies = {
+      "neovim/nvim-lspconfig",
+    },
+    lazy = false,
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
@@ -162,6 +170,7 @@ local plugins = {
       'JoosepAlviste/nvim-ts-context-commentstring',
       'windwp/nvim-ts-autotag',
     },
+    lazy = false,
   },
   {
     -- dir = "/home/liray/Documents/Programming/nvim/awa5_rs.nvim",
