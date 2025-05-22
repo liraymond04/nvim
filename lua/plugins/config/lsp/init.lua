@@ -23,9 +23,80 @@ local lsp_path = "plugins.config.lsp" .. "."
 require(lsp_path .. "lsp-signature")
 local lsp_handlers = require(lsp_path .. "handlers")
 
-lspconfig.gdscript.setup({
-  root_dir = require("lspconfig.util").root_pattern("project.godot", ".git"),
+local util = require("lspconfig.util")
+
+local servers = {
+  "cssls",
+  "cssmodules_ls",
+  "emmet_ls",
+  "html",
+  "eslint",
+  "jsonls",
+  "lua_ls",
+  "ts_ls",
+  "svelte",
+  "pyright",
+  "yamlls",
+  "bashls",
+  "clangd",
+  "cmake",
+  "rust_analyzer",
+  -- "tailwindcss",
+  "zk",
+  "texlab",
+  "r_language_server",
+}
+
+lspconfig.gdscript.setup({})
+
+for _, server in ipairs(servers) do
+  vim.lsp.config(server, {
+    on_attach = lsp_handlers.on_attach,
+    capabilities = lsp_handlers.capabilities,
+  })
+end
+
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      runtime = { version = "LuaJIT" },
+      telemetry = { enable = false },
+      diagnostics = {
+        globals = { "vim", "require", "pcall", "pairs" },
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false,
+      },
+      completion = {
+        workspaceWord = true,
+        callSnippet = "Replace",
+      },
+      hint = {
+        enable = true,
+      },
+      format = {
+        enable = false,
+      },
+    },
+  },
+})
+
+vim.lsp.config("rust_analyzer", {
+  filetypes = { "rust" },
+  root_dir = util.root_pattern("Cargo.toml"),
+  settings = {
+    ["rust-analyzer"] = {
+      cargo = {
+        allFeatures = true,
+      },
+    },
+  },
+})
+
+vim.lsp.config("gdscript", {
   filetypes = { "gd", "gdscript", "gdscript3" },
+  root_dir = util.root_pattern("project.godot", ".git"),
 })
 
 mason.setup({
@@ -47,27 +118,7 @@ mason_dap.setup({
 })
 
 mason_lspconfig.setup({
-  ensure_installed = {
-    "cssls",
-    "cssmodules_ls",
-    "emmet_ls",
-    "html",
-    "eslint",
-    "jsonls",
-    "lua_ls",
-    "ts_ls",
-    "svelte",
-    "pyright",
-    "yamlls",
-    "bashls",
-    "clangd",
-    "cmake",
-    "rust_analyzer",
-    -- "tailwindcss",
-    "zk",
-    "texlab",
-    "r_language_server",
-  },
+  ensure_installed = servers,
   automatic_enable = true,
 })
 
