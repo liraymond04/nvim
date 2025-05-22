@@ -4,7 +4,7 @@ return {
       runtime = { version = "LuaJIT" },
       telemetry = { enable = false },
       diagnostics = {
-        globals = { "vim", "require", "pcall", "pairs" }
+        globals = { "vim", "require", "pcall", "pairs" },
       },
       workspace = {
         library = vim.api.nvim_get_runtime_file("", true),

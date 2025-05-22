@@ -1,4 +1,4 @@
-vim.cmd [[
+vim.cmd([[
   augroup _general_settings
     autocmd!
     autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 
@@ -39,7 +39,7 @@ vim.cmd [[
 
     autocmd FileType asm setlocal autoindent noexpandtab shiftwidth=8 tabstop=8
   augroup END
-]]
+]])
 
 -- Autoformat
 -- augroup _lsp

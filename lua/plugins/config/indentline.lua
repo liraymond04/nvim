@@ -23,6 +23,6 @@ ibl.setup({
       "neogitstatus",
       "NvimTree",
       "Trouble",
-    }
-  }
+    },
+  },
 })

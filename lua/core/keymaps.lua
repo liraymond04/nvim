@@ -71,11 +71,9 @@ keymap("x", "<C-/>", "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.f
 -- keymap("x", "<C-_>", '<ESC><CMD>lua require("Comment.api").toggle.blockwise.current(vim.fn.visualmode())<CR>', opts)
 
 -- Harpoon
-vim.keymap.set("n", "m",
-  function()
-    require('harpoon.ui').nav_file(vim.v.count)
-  end, opts
-)
+vim.keymap.set("n", "m", function()
+  require("harpoon.ui").nav_file(vim.v.count)
+end, opts)
 -- keymap("n", "m", toggle_move, opts)
 
 -- LSP signature help
@@ -84,7 +82,7 @@ keymap("i", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 keymap("x", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 
 -- vim-sneak
-keymap('n', '<C-c>', '<cmd>lua vim.fn["sneak#util#removehl"]()<CR>', opts)
+keymap("n", "<C-c>", '<cmd>lua vim.fn["sneak#util#removehl"]()<CR>', opts)
 
 -- Terminal --
 -- Better terminal navigation

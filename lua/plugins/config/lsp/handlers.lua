@@ -7,13 +7,13 @@ end
 M.capabilities = cmp_nvim_lsp.default_capabilities()
 
 M.setup = function()
-  local icons = require "plugins.utils.icons"
+  local icons = require("plugins.utils.icons")
   local signs = {
 
     { name = "DiagnosticSignError", text = icons.diagnostics.Error },
-    { name = "DiagnosticSignWarn",  text = icons.diagnostics.Warning },
-    { name = "DiagnosticSignHint",  text = icons.diagnostics.Hint },
-    { name = "DiagnosticSignInfo",  text = icons.diagnostics.Information },
+    { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
+    { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
+    { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
   }
 
   for _, sign in ipairs(signs) do
@@ -83,7 +83,7 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({ async = true })' ]]
+  vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format({ async = true })' ]])
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "[f", "<cmd>Format<cr>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "[a", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
@@ -93,12 +93,20 @@ local function lsp_keymaps(bufnr)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "[g", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]g", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "[G",
+  vim.api.nvim_buf_set_keymap(
+    bufnr,
+    "n",
+    "[G",
     '<cmd>lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR, wrap = true, border = "rounded" })<CR>',
-    opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "]G",
+    opts
+  )
+  vim.api.nvim_buf_set_keymap(
+    bufnr,
+    "n",
+    "]G",
     '<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR, wrap = true, border = "rounded" })<CR>',
-    opts)
+    opts
+  )
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 end
 
@@ -119,22 +127,22 @@ M.on_attach = function(client, bufnr)
 end
 
 function M.enable_format_on_save()
-  vim.cmd [[
+  vim.cmd([[
     augroup format_on_save
       autocmd!
       autocmd BufWritePre * lua vim.lsp.buf.format({ async = true })
     augroup end
-  ]]
-  vim.notify "Enabled format on save"
+  ]])
+  vim.notify("Enabled format on save")
 end
 
 function M.disable_format_on_save()
-  M.remove_augroup "format_on_save"
-  vim.notify "Disabled format on save"
+  M.remove_augroup("format_on_save")
+  vim.notify("Disabled format on save")
 end
 
 function M.toggle_format_on_save()
-  if vim.fn.exists "#format_on_save#BufWritePre" == 0 then
+  if vim.fn.exists("#format_on_save#BufWritePre") == 0 then
     M.enable_format_on_save()
   else
     M.disable_format_on_save()
@@ -147,6 +155,6 @@ function M.remove_augroup(name)
   end
 end
 
-vim.cmd [[ command! LspToggleAutoFormat execute 'lua require("plugins.setup.lsp.handlers").toggle_format_on_save()' ]]
+vim.cmd([[ command! LspToggleAutoFormat execute 'lua require("plugins.setup.lsp.handlers").toggle_format_on_save()' ]])
 
 return M

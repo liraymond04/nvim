@@ -4,7 +4,7 @@ local plugins = {
     lazy = false,
     priority = 1000,
     config = function()
-      local theme = require "onedark"
+      local theme = require("onedark")
       theme.setup({
         transparent = true,
       })
@@ -91,7 +91,7 @@ local plugins = {
     dependencies = { "rafamadriz/friendly-snippets" },
   },
   {
-    "rafamadriz/friendly-snippets"
+    "rafamadriz/friendly-snippets",
   },
   -- lsp
   {
@@ -116,7 +116,7 @@ local plugins = {
     "jay-babu/mason-nvim-dap.nvim",
   },
   {
-    "nvimtools/none-ls.nvim"
+    "nvimtools/none-ls.nvim",
   },
   {
     "hrsh7th/cmp-nvim-lsp-signature-help",
@@ -154,7 +154,7 @@ local plugins = {
   },
   {
     "nvim-telescope/telescope.nvim",
-    dependencies = { "ahmedkhalf/project.nvim" }
+    dependencies = { "ahmedkhalf/project.nvim" },
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
@@ -167,15 +167,15 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
-      'JoosepAlviste/nvim-ts-context-commentstring',
-      'windwp/nvim-ts-autotag',
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      "windwp/nvim-ts-autotag",
     },
     lazy = false,
   },
   {
     -- dir = "/home/liray/Documents/Programming/nvim/awa5_rs.nvim",
     -- name = "awa5_rs.nvim",
-    "liraymond04/awa5_rs.nvim"
+    "liraymond04/awa5_rs.nvim",
   },
   -- git
   {

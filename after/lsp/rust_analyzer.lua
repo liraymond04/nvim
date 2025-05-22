@@ -1,6 +1,6 @@
 return {
   settings = {
-    ['rust-analyzer'] = {
+    ["rust-analyzer"] = {
       cargo = {
         allFeatures = true,
       },
