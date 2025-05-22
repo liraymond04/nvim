@@ -68,50 +68,10 @@ mason_lspconfig.setup({
     "texlab",
     "r_language_server",
   },
+  automatic_enable = true,
 })
 
 local util = require "lspconfig.util"
-
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    lspconfig[server_name].setup {
-      on_attach = lsp_handlers.on_attach,
-      capabilities = lsp_handlers.capabilities,
-    }
-  end,
-  ["lua_ls"] = function()
-    lspconfig.lua_ls.setup {
-      on_attach = lsp_handlers.on_attach,
-      capabilities = lsp_handlers.capabilities,
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = { "vim" }
-          },
-          workspace = {
-            library = vim.api.nvim_get_runtime_file("", true),
-            checkThirdParty = false,
-          }
-        },
-      },
-    }
-  end,
-  ["rust_analyzer"] = function ()
-    lspconfig.rust_analyzer.setup {
-      on_attach = lsp_handlers.on_attach,
-      capabilities = lsp_handlers.capabilities,
-      filetypes = { "rust" },
-      root_dir = util.root_pattern("Cargo.toml"),
-      settings = {
-        ['rust-analyzer'] = {
-          cargo = {
-            allFeatures = true,
-          },
-        },
-      },
-    }
-  end,
-}
 
 lsp_handlers.setup()
 
