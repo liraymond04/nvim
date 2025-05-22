@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
-bufferline.setup {
+bufferline.setup({
   options = {
     numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
     close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
@@ -161,7 +161,7 @@ bufferline.setup {
     --   },
     indicator_selected = {
       guifg = { attribute = "fg", highlight = "LspDiagnosticsDefaultHint" },
-      guibg = { attribute = "bg", highlight = "Normal" }
+      guibg = { attribute = "bg", highlight = "Normal" },
     },
 
     error = {
@@ -180,7 +180,7 @@ bufferline.setup {
       -- guisp = '<color-value-here>',
     },
     error_diagnostic = {
-      guifg = '#9D4B52',
+      guifg = "#9D4B52",
       guibg = { attribute = "bg", highlight = "TabLine" },
     },
     -- error_diagnostic_visible = {
@@ -188,14 +188,14 @@ bufferline.setup {
     --   guibg = '<color-value-here>',
     -- },
     error_diagnostic_selected = {
-      guifg = '#E06C75',
+      guifg = "#E06C75",
       -- guibg = '<color-value-here>',
       gui = "none",
       -- guisp = '<color-value-here>'
     },
 
     warning = {
-      guifg = '#A18756',
+      guifg = "#A18756",
       guibg = { attribute = "bg", highlight = "TabLine" },
       gui = "none",
       -- guisp = '<color-value-here>',
@@ -211,7 +211,7 @@ bufferline.setup {
       -- guisp = '<color-value-here>'
     },
     warning_diagnostic = {
-      guifg = '#A18756',
+      guifg = "#A18756",
       guibg = { attribute = "bg", highlight = "TabLine" },
     },
     -- warning_diagnostic_visible = {
@@ -219,14 +219,14 @@ bufferline.setup {
     --   guibg = '<color-value-here>'
     -- },
     warning_diagnostic_selected = {
-      guifg = '#E5C07B',
+      guifg = "#E5C07B",
       -- guibg = '<color-value-here>',
       gui = "none",
       -- guisp = '<color-value-here>'
     },
 
     info = {
-      guifg = '#447BA8',
+      guifg = "#447BA8",
       guibg = { attribute = "bg", highlight = "TabLine" },
       gui = "none",
       -- guisp = '<color-value-here>',
@@ -242,7 +242,7 @@ bufferline.setup {
       -- guisp = '<color-value-here>'
     },
     info_diagnostic = {
-      guifg = '#447BA8',
+      guifg = "#447BA8",
       guibg = { attribute = "bg", highlight = "TabLine" },
     },
     -- info_diagnostic_visible = {
@@ -250,10 +250,10 @@ bufferline.setup {
     --   guibg = '<color-value-here>'
     -- },
     info_diagnostic_selected = {
-      guifg = '#61AFEF',
+      guifg = "#61AFEF",
       -- guibg = '<color-value-here>',
       gui = "none",
       -- guisp = '<color-value-here>'
     },
   },
-}
+})

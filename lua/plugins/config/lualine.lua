@@ -21,7 +21,7 @@ local diff = {
   "diff",
   colored = false,
   symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
-  cond = hide_in_width
+  cond = hide_in_width,
 }
 
 local mode = {
@@ -85,7 +85,7 @@ lualine.setup({
   },
   sections = {
     lualine_a = { mode },
-    lualine_b = { 'filename', },
+    lualine_b = { "filename" },
     lualine_c = { branch, diagnostics },
     -- lualine_x = { "encoding", "fileformat", "filetype" },
     lualine_x = { diff, spaces, "encoding", filetype },

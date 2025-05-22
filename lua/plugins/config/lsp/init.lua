@@ -24,8 +24,8 @@ require(lsp_path .. "lsp-signature")
 local lsp_handlers = require(lsp_path .. "handlers")
 
 lspconfig.gdscript.setup({
-  root_dir = require('lspconfig.util').root_pattern('project.godot', '.git'),
-  filetypes = { 'gd', 'gdscript', 'gdscript3' },
+  root_dir = require("lspconfig.util").root_pattern("project.godot", ".git"),
+  filetypes = { "gd", "gdscript", "gdscript3" },
 })
 
 mason.setup({
@@ -71,16 +71,15 @@ mason_lspconfig.setup({
   automatic_enable = true,
 })
 
-local util = require "lspconfig.util"
+local util = require("lspconfig.util")
 
 lsp_handlers.setup()
 
-local dap = require('dap')
+local dap = require("dap")
 dap.configurations.c[1].args = function()
-  local argument_string = vim.fn.input('Program arguments: ')
+  local argument_string = vim.fn.input("Program arguments: ")
   return vim.fn.split(argument_string, " ", true)
 end
-
 
 require(lsp_path .. "null-ls")
 

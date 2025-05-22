@@ -3,9 +3,9 @@ if not status_ok then
   return
 end
 
-local actions = require "telescope.actions"
+local actions = require("telescope.actions")
 
-telescope.setup {
+telescope.setup({
   defaults = {
 
     prompt_prefix = " ",
@@ -84,36 +84,42 @@ telescope.setup {
     --   ...
     -- }
     find_files = {
-      find_command = { 'rg', '--files', '--hidden', '-g', '!{**/.git/*,**/node_modules/*,**/package-lock.json,**/yarn.lock}' },
+      find_command = {
+        "rg",
+        "--files",
+        "--hidden",
+        "-g",
+        "!{**/.git/*,**/node_modules/*,**/package-lock.json,**/yarn.lock}",
+      },
     },
     live_grep = {
       additional_args = function(opts)
         return { "--hidden" }
-      end
+      end,
     },
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
   },
   extensions = {
     fzf = {
-      fuzzy = true,                   -- false will only do exact matching
+      fuzzy = true, -- false will only do exact matching
       override_generic_sorter = true, -- override the generic sorter
-      override_file_sorter = true,    -- override the file sorter
-      case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
+      override_file_sorter = true, -- override the file sorter
+      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
       -- the default case_mode is "smart_case"
     },
     ["ui-select"] = {
-      require("telescope.themes").get_dropdown {
+      require("telescope.themes").get_dropdown({
         -- even more opts
-      }
-    }
+      }),
+    },
     -- Your extension configuration goes here:
     -- extension_name = {
     --   extension_config_key = value,
     -- }
     -- please take a look at the readme of the extension you want to configure
   },
-}
+})
 
 telescope.load_extension("fzf")
 telescope.load_extension("ui-select")

@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
-faster.setup {
+faster.setup({
   opts = {
     -- Behaviour table contains configuration for behaviours faster.nvim uses
     behaviours = {
@@ -18,8 +18,14 @@ faster.setup {
         -- features_disabled can also be set to "all" and then all features that
         -- are on (on=true) are going to be disabled for this behaviour
         features_disabled = {
-          "illuminate", "matchparen", "lsp", "treesitter",
-          "indent_blankline", "vimopts", "syntax", "filetype"
+          "illuminate",
+          "matchparen",
+          "lsp",
+          "treesitter",
+          "indent_blankline",
+          "vimopts",
+          "syntax",
+          "filetype",
         },
         -- Files larger than `filesize` are considered big files. Value is in MB.
         filesize = 2,
@@ -61,7 +67,7 @@ faster.setup {
         -- happen after 300-400 hundred iterations:
         -- `E5108: Error executing lua Vim:E903: Process failed to start: too many open files: "/usr/bin/git"`
         features_disabled = { "lualine" },
-      }
+      },
     },
     -- Feature table contains configuration for features faster.nvim will disable
     -- and enable according to rules defined in behaviours.
@@ -122,7 +128,7 @@ faster.setup {
       vimopts = {
         on = true,
         defer = false,
-      }
-    }
-  }
-}
+      },
+    },
+  },
+})

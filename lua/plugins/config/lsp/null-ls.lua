@@ -17,7 +17,7 @@ local async = event == "BufWritePost"
 
 local on_attach = function(client, bufnr)
   if client.supports_method("textDocument/formatting") then
-    vim.keymap.set("n", "<leader>v", function ()
+    vim.keymap.set("n", "<leader>v", function()
       vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
     end, { buffer = bufnr, desc = "[lsp] format" })
 
@@ -40,11 +40,11 @@ local on_attach = function(client, bufnr)
   end
 end
 
-null_ls.setup {
+null_ls.setup({
   debug = false,
   sources = sources,
   -- on_attach = on_attach
-}
+})
 
 local unwrap = {
   method = null_ls.methods.DIAGNOSTICS,
@@ -55,7 +55,7 @@ local unwrap = {
       -- sources have access to a params object
       -- containing info about the current file and editor state
       for i, line in ipairs(params.content) do
-        local col, end_col = line:find "unwrap()"
+        local col, end_col = line:find("unwrap()")
         if col and end_col then
           -- null-ls fills in undefined positions
           -- and converts source diagnostics into the required format
@@ -64,7 +64,7 @@ local unwrap = {
             col = col,
             end_col = end_col,
             source = "unwrap",
-            message = "hey " .. os.getenv("USER") .. ", don't forget to handle this" ,
+            message = "hey " .. os.getenv("USER") .. ", don't forget to handle this",
             severity = 2,
           })
         end

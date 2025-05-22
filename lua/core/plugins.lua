@@ -6,7 +6,7 @@
 --   augroup end
 -- ]])
 
-local plugins = require "plugins"
+local plugins = require("plugins")
 
 local opts = {
   {
@@ -32,4 +32,4 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup(plugins, opts)
 
-require "plugins.setup"
+require("plugins.setup")
