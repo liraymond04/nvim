@@ -78,11 +78,11 @@ end, opts)
 
 -- LSP signature help
 keymap("n", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-keymap("i", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+-- keymap("i", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 keymap("x", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 
 -- vim-sneak
-keymap("n", "<C-c>", '<cmd>lua vim.fn["sneak#util#removehl"]()<CR>', opts)
+-- keymap("n", "<C-c>", '<cmd>lua vim.fn["sneak#util#removehl"]()<CR>', opts)
 
 -- Terminal --
 -- Better terminal navigation

@@ -13,8 +13,7 @@ nvim/               // root
 ├─ lua/
 │  ├─ core/         // main vim configs
 │  ├─ plugins/
-│  │  ├─ configs/   // plugin setup
-│  │  ├─ utils/
+│  ├─ utils/
 ├─ init.lua         // entry point
 ```
 
@@ -27,20 +26,48 @@ nvim/               // root
  - plugins.lua - plugin install and setup
 
 ### plugins
- - init.lua - returns
- table of plugins to install
- - setup.lua - include file for plugin configuration and setup
- - configs/ - contains
- configuration and setup for plugins
- - utils/ - contains utility functions not part of plugin setup
+
+Contains plugin configurations and setup, each lua file in this directory
+is automatically included by lazy.nvim and has their setup functions run,
+so configuration and setup should refer to the [lazy.nvim docs](https://lazy.folke.io/spec) for support.
+
+Lua files in this directory just return tables where each table entry is a
+plugin entry that is loaded by lazy.nvim, and so the Lua file names are not
+important for anything other than organization and categorization.
+
+A basic template Lua file that contains no plugins should return just an empty table,
+
+```lua
+-- nvim/lua/plugins/example.lua
+return {
+  
+}
+```
+
+And any plugin can have their setup specified by adding it as a plugin entry,
+
+```lua
+-- nvim/lua/plugins/example.lua
+return {
+  { -- example entry
+    "[author]/[repo-name]",
+    opts = {
+      -- opts go here
+    },
+  },
+  -- add as many plugins as you want
+}
+```
+
+### utils
+
+Contains utility functions not part of plugin setup
  
 ## Tips
 
  - Commenting out the `requires "core"` in the root `init.lua` disables the configuration (same as using unconfigured Neovim)
  - Commenting out `requires "core.plugins"` in `core/init.lua` disables user installed plugins
- - Individual plugins can be disabled by commenting out their requires lines in `plugins/setup.lua`
-    - Note: `tpope/vim-sleuth` is an exception, it's not a Lua plugin and is loaded by the package manager
- - Plugins can be installed by adding a plugin's repo `[author]/[repo-name]` to the lua table in `plugins/init.lua`
+ - Individual plugins can be disabled by commenting out their plugin entries in the `plugins` Lua files
 
 ## Setup
 
