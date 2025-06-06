@@ -336,14 +336,14 @@ return {
         remap = false,
       },
       {
-        "<leader>sC",
+        "<leader>sc",
         "<cmd>Telescope commands<cr>",
         desc = "Commands",
         nowait = true,
         remap = false,
       },
       {
-        "<leader>sM",
+        "<leader>sm",
         "<cmd>Telescope man_pages<cr>",
         desc = "Man Pages",
         nowait = true,
@@ -364,7 +364,7 @@ return {
         remap = false,
       },
       {
-        "<leader>sc",
+        "<leader>sC",
         "<cmd>Telescope colorscheme<cr>",
         desc = "Colorscheme",
         nowait = true,
