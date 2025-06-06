@@ -4,6 +4,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
       "JoosepAlviste/nvim-ts-context-commentstring",
+      "RRethy/nvim-treesitter-endwise",
     },
     build = ":TSUpdate",
     config = function()
