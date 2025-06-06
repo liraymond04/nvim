@@ -9,7 +9,22 @@ return {
       "nvim-telescope/telescope-ui-select.nvim",
     },
     config = function()
+      local state = require("telescope.state")
+      local action_state = require("telescope.actions.state")
       local actions = require("telescope.actions")
+
+      local slow_scroll = function(prompt_bufnr, direction)
+        local previewer = action_state.get_current_picker(prompt_bufnr).previewer
+        local status = state.get_status(prompt_bufnr)
+
+        -- Check if we actually have a previewer and a preview window
+        if type(previewer) ~= "table" or previewer.scroll_fn == nil or status.preview_win == nil then
+          return
+        end
+
+        previewer:scroll_fn(1 * direction)
+      end
+
       require("telescope").setup({
         defaults = {
 
@@ -37,6 +52,13 @@ return {
 
               ["<C-u>"] = actions.preview_scrolling_up,
               ["<C-d>"] = actions.preview_scrolling_down,
+
+              ["<C-e>"] = function(bufnr)
+                slow_scroll(bufnr, 1)
+              end,
+              ["<C-y>"] = function(bufnr)
+                slow_scroll(bufnr, -1)
+              end,
 
               ["<PageUp>"] = actions.results_scrolling_up,
               ["<PageDown>"] = actions.results_scrolling_down,
@@ -104,13 +126,13 @@ return {
           },
           vimgrep_arguments = {
             "rg",
-            "--follow", -- Follow symbolic links
-            "--hidden", -- Search for hidden files
-            "--no-heading", -- Don't group matches by each file
+            "--follow",        -- Follow symbolic links
+            "--hidden",        -- Search for hidden files
+            "--no-heading",    -- Don't group matches by each file
             "--with-filename", -- Print the file path with the matched lines
-            "--line-number", -- Show line numbers
-            "--column", -- Show column numbers
-            "--smart-case", -- Smart case search
+            "--line-number",   -- Show line numbers
+            "--column",        -- Show column numbers
+            "--smart-case",    -- Smart case search
 
             -- Exclude some patterns from search
             "--glob=!**/.git/*",
@@ -133,10 +155,10 @@ return {
         },
         extensions = {
           fzf = {
-            fuzzy = true, -- false will only do exact matching
+            fuzzy = true,                   -- false will only do exact matching
             override_generic_sorter = true, -- override the generic sorter
-            override_file_sorter = true, -- override the file sorter
-            case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+            override_file_sorter = true,    -- override the file sorter
+            case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
             -- the default case_mode is "smart_case"
           },
           ["ui-select"] = {

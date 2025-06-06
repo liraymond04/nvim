@@ -174,7 +174,7 @@ return {
           buf_map("n", "gI", vim.lsp.buf.implementation, "Go to implementation")
           buf_map("n", "gr", vim.lsp.buf.references, "List references")
           buf_map("n", "gs", vim.lsp.buf.signature_help, "Signature help")
-          buf_map("n", "gk", function()
+          buf_map("n", "gK", function()
             vim.lsp.buf.hover({ border = "rounded", width = 60 })
           end, "Hover documentation")
           buf_map("n", "gl", function()
@@ -242,5 +242,8 @@ return {
   },
   {
     "RRethy/vim-illuminate",
+  },
+  {
+    "liraymond04/awa5_rs.nvim",
   },
 }

@@ -2,8 +2,20 @@ return {
   {
     "lambdalisue/vim-suda",
   },
-  { -- autopairs
-    "cohama/lexima.vim",
+  {
+    "kylechui/nvim-surround",
+    version = "^3.0.0", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end,
+  },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = true,
   },
   {
     "numToStr/Comment.nvim",
@@ -16,7 +28,7 @@ return {
     config = function()
       require("toggleterm").setup({
         size = 20,
-        open_mapping = [[<C-\>]],
+        open_mapping = [[<c-\>]],
         hide_numbers = true,
         shade_filetypes = {},
         shade_terminals = false,
@@ -88,13 +100,13 @@ return {
     build = "deno task --quiet build:fast",
     config = function()
       require("peek").setup({
-        auto_load = true,      -- whether to automatically load preview when
+        auto_load = true,        -- whether to automatically load preview when
         -- entering another markdown buffer
         close_on_bdelete = true, -- close preview window on buffer delete
 
-        syntax = true,         -- enable syntax highlighting, affects performance
+        syntax = true,           -- enable syntax highlighting, affects performance
 
-        theme = "dark",        -- 'dark' or 'light'
+        theme = "dark",          -- 'dark' or 'light'
 
         update_on_change = true,
 
@@ -105,7 +117,7 @@ return {
         filetype = { "markdown" }, -- list of filetypes to recognize as markdown
 
         -- relevant if update_on_change is true
-        throttle_at = 200000, -- start throttling when file exceeds this
+        throttle_at = 200000,   -- start throttling when file exceeds this
         -- amount of bytes in size
         throttle_time = "auto", -- minimum amount of time in milliseconds
         -- that has to pass before starting new render

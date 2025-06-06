@@ -5,6 +5,11 @@ return {
     dependencies = {
       "moll/vim-bbye",
     },
+    opts = {
+      win = {
+        border = "rounded",
+      },
+    },
     keys = {
       {
         "<leader>F",
