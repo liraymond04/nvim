@@ -440,6 +440,13 @@ return {
         remap = false,
       },
       {
+        "<leader>ts",
+        "<cmd>Screenkey<cr>",
+        desc = "Screenkey",
+        nowait = true,
+        remap = false,
+      },
+      {
         "<leader>w",
         "<cmd>w!<CR>",
         desc = "Save",
