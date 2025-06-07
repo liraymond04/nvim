@@ -45,26 +45,19 @@ return {
     },
   },
   {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
+    "nvimdev/indentmini.nvim",
     opts = {
-      indent = {
-        char = "▏",
-      },
-      scope = {
-        enabled = true,
-      },
-      exclude = {
-        filetypes = { "terminal", "nofile" },
-        buftypes = {
-          "help",
-          "startify",
-          "dashboard",
-          "packer",
-          "neogitstatus",
-          "NvimTree",
-          "Trouble",
-        },
+      char = "▏",
+    },
+  },
+  {
+    "catgoose/nvim-colorizer.lua",
+    event = "BufReadPre",
+    opts = { -- set to setup table
+      user_default_options = {
+        names = false,
+        mode = "foreground",
+        virtualtext_inline = true,
       },
     },
   },

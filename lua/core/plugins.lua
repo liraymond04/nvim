@@ -30,6 +30,8 @@ require("lazy").setup({
           transparent = true,
         })
         theme.load()
+        vim.api.nvim_set_hl(0, "IndentLine", { fg = "#5c6370" })
+        -- vim.api.nvim_set_hl(0, "IndentLineCurrent", { bold = true })
       end,
     },
     { import = "plugins" },
