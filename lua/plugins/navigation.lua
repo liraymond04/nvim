@@ -7,6 +7,9 @@ return {
     "ThePrimeagen/harpoon",
   },
   {
+    "justinmk/vim-sneak"
+  },
+  {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
