@@ -41,6 +41,13 @@ return {
         remap = false,
       },
       {
+        "<leader>C",
+        "<cmd>CopilotToggle<cr>",
+        desc = "Copilot Toggle",
+        nowait = true,
+        remap = false,
+      },
+      {
         "<leader>d",
         group = "DAP",
         nowait = true,
