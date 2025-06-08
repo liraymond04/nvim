@@ -22,6 +22,7 @@ return {
   },
   {
     "arch1t3cht/ass.nvim",
+    opts = {},
   },
   {
     "akinsho/toggleterm.nvim",
