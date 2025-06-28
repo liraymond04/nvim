@@ -460,6 +460,13 @@ return {
         nowait = true,
         remap = false,
       },
+      {
+        "<leader>z",
+        "<cmd>NeoZoomToggle<CR>",
+        desc = "Toggle zoom",
+        nowait = true,
+        remap = false,
+      }
     },
   },
 }

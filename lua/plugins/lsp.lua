@@ -25,7 +25,7 @@ return {
     cmd = "Trouble",
     keys = {
       {
-        "<leader>xx",
+        "<leader>;;",
         "<cmd>Trouble diagnostics toggle<cr>",
         desc = "Diagnostics (Trouble)",
       },
@@ -248,7 +248,6 @@ return {
         "marksman",
         "ocamllsp",
         "taplo",
-        "ltex",
         "yamlls",
         "gopls",
         "dockerls",
