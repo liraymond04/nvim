@@ -118,6 +118,13 @@ return {
     config = function()
       -- local capabilities = require("blink.cmp").get_lsp_capabilities()
       -- require("lspconfig").lua_ls.setup({ capabilites = capabilities })
+      local lsp_capabilities = vim.lsp.protocol.make_client_capabilities() --or whatever your setup requires
+      lsp_capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
+
+      -- fix svelte lsp dynamic watcher
+      require("lspconfig").svelte.setup({
+        capabilities = lsp_capabilities,
+      })
 
       local icons = require("utils.icons")
 
