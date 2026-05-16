@@ -20,6 +20,28 @@ return {
     end,
   },
   {
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    opts = {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "${3rd}/luv/library",        words = { "vim%.uv", "vim%.loop" } },
+        { path = "${3rd}/love2d/library",     words = { "love", "love%." } },
+        { path = "luassert-types/library",    words = { "assert" } },
+        { path = "xmake-luals-addon/library", files = { "xmake.lua" } },
+        { path = "busted-types/library",      words = { "describe" } },
+        { path = "snacks.nvim",               words = { "Snacks" } },
+        { path = "avante.nvim",               words = { "Avante" } },
+      },
+    },
+    dependencies = {
+      { "LuaCATS/luassert",            name = "luassert-types",     lazy = true },
+      { "LuaCATS/busted",              name = "busted-types",       lazy = true },
+      { "LelouchHe/xmake-luals-addon", name = "xmake-lua-ls-types", lazy = true },
+    },
+  },
+  {
     "folke/trouble.nvim",
     opts = {}, -- for default options, refer to the configuration section for custom setup.
     cmd = "Trouble",
@@ -36,7 +58,7 @@ return {
     dependencies = {
       {
         "saghen/blink.cmp",
-        dependencies = { "rafamadriz/friendly-snippets" },
+        -- dependencies = { "rafamadriz/friendly-snippets" },
 
         version = "1.*",
 
@@ -79,7 +101,15 @@ return {
           },
 
           sources = {
-            default = { "lsp", "path", "snippets", "buffer" },
+            default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+            providers = {
+              lazydev = {
+                name = "LazyDev",
+                module = "lazydev.integrations.blink",
+                -- make lazydev completions top priority (see `:h blink.cmp`)
+                score_offset = 100,
+              },
+            },
           },
 
           fuzzy = { implementation = "prefer_rust_with_warning" },
@@ -122,9 +152,9 @@ return {
       lsp_capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
 
       -- fix svelte lsp dynamic watcher
-      require("lspconfig").svelte.setup({
-        capabilities = lsp_capabilities,
-      })
+      -- require("lspconfig").svelte.setup({
+      --   capabilities = lsp_capabilities,
+      -- })
 
       local icons = require("utils.icons")
 
@@ -251,7 +281,6 @@ return {
         "rust_analyzer",
         "tailwindcss",
         "texlab",
-        "r_language_server",
         "marksman",
         "ocamllsp",
         "taplo",
@@ -278,6 +307,8 @@ return {
     "RRethy/vim-illuminate",
   },
   {
-    "liraymond04/awa5_rs.nvim",
+    -- "liraymond04/awa5_rs.nvim",
+    dir = "~/Documents/Programming/nvim/awa5_rs.nvim",
+    opts = {},
   },
 }
